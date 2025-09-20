@@ -1,7 +1,6 @@
 {
   "name": "new-bs-helper-extension",
   "version": "1.0.0",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode=production",
@@ -33,7 +32,7 @@
     "copy-webpack-plugin": "^13.0.0",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.2",
-    "rimraf": "^3.0.2",
+    "rimraf": "^5.0.10",
     "style-loader": "^4.0.0",
     "terser-webpack-plugin": "^5.3.14",
     "webpack": "^5.99.9",

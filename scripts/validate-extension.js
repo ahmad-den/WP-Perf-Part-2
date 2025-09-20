@@ -1,10 +1,6 @@
-import fs from "fs"
-import path from "path"
-import chalk from "chalk"
-import { fileURLToPath } from "url"
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const fs = require("fs")
+const path = require("path")
+const chalk = require("chalk")
 
 const distDir = path.resolve(__dirname, "../dist")
 const manifestPath = path.join(distDir, "manifest.json")
