@@ -99,4 +99,6 @@
   font-weight: 500;
   flex: 1;
   min-width: 0;
+  display: block;
+  max-width: 100%;
 }
