@@ -92,11 +92,16 @@
     box-shadow: var(--shadow-sm);
     overflow-y: auto;
     flex: 1;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .content.active {
     display: block;
     max-height: 100%;
+    opacity: 1;
+    transform: translateX(0);
   }
   
   .detached-mode .content {
@@ -187,4 +192,3 @@
     height: 16px;
     color: var(--primary-color);
   }
-  

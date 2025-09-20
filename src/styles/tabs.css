@@ -7,6 +7,21 @@
     padding: 3px;
     border: 1px solid var(--primary-color-hover);
     flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Active tab indicator that slides between tabs */
+.tab-indicator {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    background-color: var(--background-content);
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    pointer-events: none;
   }
   
   .tab {
@@ -25,6 +40,8 @@
     align-items: center;
     justify-content: center;
     gap: 6px;
+    position: relative;
+    z-index: 2;
   }
   
   .tab svg {
@@ -34,9 +51,10 @@
     transition: color 0.2s ease-out, opacity 0.2s ease-out;
   }
   
-  .tab:hover:not(.active) {
-    background-color: var(--primary-color-hover);
+.tab:hover {
     color: var(--primary-color-dark);
+    transform: translateY(-1px);
+    transition: all 0.2s ease-out;
   }
   
   .tab:hover:not(.active) svg {
@@ -45,9 +63,8 @@
   
   .tab.active {
     color: var(--primary-color);
-    background-color: var(--background-content);
     font-weight: 600;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    transform: none;
   }
   
   .tab.active svg {
