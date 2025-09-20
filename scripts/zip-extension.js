@@ -32,8 +32,7 @@ async function zipExtension() {
   }
 
   const suffix = isDev ? "-dev" : ""
-  const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, "-")
-  const zipFileName = `${name}-v${version}${suffix}-${timestamp}.zip`
+  const zipFileName = `${name}-v${version}${suffix}.zip`
   const zipPath = path.resolve(__dirname, "../releases", zipFileName)
 
   // Ensure releases directory exists
@@ -81,6 +80,13 @@ async function zipExtension() {
 
     // Add all files from dist directory
     archive.directory(distPath, false)
+
+    // Add installation instructions to the zip
+    const installMdPath = path.resolve(__dirname, "../INSTALL.md")
+    if (fs.existsSync(installMdPath)) {
+      archive.file(installMdPath, { name: "INSTALL.md" })
+      console.log(chalk.gray("   Added installation instructions"))
+    }
 
     // Exclude development files if they exist
     const excludePatterns = ["**/*.map", "**/bundle-report.html", "**/*.gz"]
