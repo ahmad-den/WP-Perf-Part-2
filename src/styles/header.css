@@ -67,13 +67,15 @@
   display: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: all 0.2s ease;
-  width: calc(100% - 32px);
-  max-width: calc(100% - 32px);
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .current-url.visible {
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
 .current-url:hover {
@@ -84,7 +86,6 @@
 .current-url-label {
   font-weight: 600;
   color: var(--text-primary);
-  margin-right: 8px;
   font-family: var(--font-family);
   white-space: nowrap;
   flex-shrink: 0;
@@ -98,5 +99,4 @@
   font-weight: 500;
   flex: 1;
   min-width: 0;
-  max-width: 100%;
 }
