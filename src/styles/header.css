@@ -98,5 +98,5 @@
   font-weight: 500;
   flex: 1;
   min-width: 0;
-  max-width: calc(100% - 80px);
+  max-width: 100%;
 }
