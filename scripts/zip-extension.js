@@ -1,7 +1,11 @@
-const fs = require("fs")
-const path = require("path")
-const archiver = require("archiver")
-const chalk = require("chalk")
+import fs from "fs"
+import path from "path"
+import archiver from "archiver"
+import chalk from "chalk"
+import { fileURLToPath } from "url"
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // Parse command line arguments
 const args = process.argv.slice(2)
@@ -92,11 +96,10 @@ async function zipExtension() {
 }
 
 // Run if called directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   zipExtension().catch((error) => {
     console.error(chalk.red("❌ Failed to create package:"), error.message)
     process.exit(1)
   })
 }
 
-module.exports = zipExtension

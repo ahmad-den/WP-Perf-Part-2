@@ -1,11 +1,14 @@
-const path = require("path")
-const CopyPlugin = require("copy-webpack-plugin")
-const TerserPlugin = require("terser-webpack-plugin")
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer")
-const CompressionPlugin = require("compression-webpack-plugin")
+import path from "path"
+import CopyPlugin from "copy-webpack-plugin"
+import TerserPlugin from "terser-webpack-plugin"
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin"
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
+import CompressionPlugin from "compression-webpack-plugin"
+import { fileURLToPath } from "url"
 
-module.exports = (env, argv) => {
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
   const isProduction = argv.mode === "production"
   const shouldAnalyze = env && env.analyze === "true"
 
@@ -191,4 +194,3 @@ module.exports = (env, argv) => {
       chunkModules: false,
     },
   }
-}
