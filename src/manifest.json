@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Bigscoots Performance Debugger",
   "version": "2.0",
-  "description": "A comprehensive tool for analyzing website performance metrics including cache headers, CDN status, preloaded fonts and images, and various optimization features. Perfect for debugging BigScoots hosting configurations and performance optimizations.",
+  "description": "Analyze website performance metrics, cache headers, CDN status, and optimization features for BigScoots hosting environments.",
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",
