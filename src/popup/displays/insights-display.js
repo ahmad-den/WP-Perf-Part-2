@@ -943,19 +943,22 @@ function updatePSICacheStatus(fromCache) {
     return
   }
   
-  // Show the container
-  cacheStatusContainer.style.display = "flex"
-  
   // Update text and styling based on cache status
-  if (fromCache === false) {
-    cacheStatusText.textContent = "Fresh"
-    cacheStatusText.className = "cache-status-text fresh"
-  } else {
+  if (fromCache === true) {
+    cacheStatusContainer.style.display = "flex"
     cacheStatusText.textContent = "Cached"
     cacheStatusText.className = "cache-status-text cached"
+    console.log("PSI cache status updated: Cached")
+  } else if (fromCache === false) {
+    cacheStatusContainer.style.display = "flex"
+    cacheStatusText.textContent = "Fresh"
+    cacheStatusText.className = "cache-status-text fresh"
+    console.log("PSI cache status updated: Fresh")
+  } else {
+    // Hide container if cache status is undefined/unknown
+    cacheStatusContainer.style.display = "none"
+    console.log("PSI cache status: undefined/unknown - hiding indicator")
   }
-  
-  console.log("PSI cache status updated:", fromCache === false ? "Fresh" : "Cached")
 }
 
 /**
